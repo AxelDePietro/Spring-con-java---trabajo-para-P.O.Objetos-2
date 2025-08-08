@@ -1,0 +1,515 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	background: #eef2f3;
+}
+header {
+    background-color:#B08B85;
+    color: white;
+    padding: 1rem;
+	padding-bottom: 2rem;
+    text-align: center;
+}
+
+.encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    left: 30px;
+    top: 10px;
+    bottom: 10px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Hace el logo redondo */
+    object-fit: cover;  /* Ajusta el recorte dentro del círculo */
+}
+
+
+.titulo {
+    text-align: center;
+    width: 100%;
+}
+
+nav {
+	background-color: #5C1623;
+	display: flex;
+	align-items: center;
+	justify-content: center; /* centra todo el nav */
+	padding: 0.75rem 1rem;
+	position: relative; /* para posicionar el logout */
+}
+nav a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-weight: bold;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+
+nav .nav-links {
+	display: flex;
+	gap: 2rem;
+	font-weight: bold;
+}
+
+nav form.logout-form {
+	position: absolute;
+	right: 1rem;
+	top: 50%;
+	transform: translateY(-50%);
+	margin: 0;
+	background: transparent; /* por si el form tiene fondo */
+	border: none;
+	padding: 0;
+}
+
+.logout-form .link-button {
+    background-color: #B08B85; /* color botón */
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9rem;
+    padding: 0.4rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    box-shadow: none;
+    text-decoration: none;
+    font-family: inherit;
+    line-height: 1;
+}
+
+.logout-form .link-button:hover,
+.logout-form .link-button:focus {
+    background-color: #9C7771; /* color más oscuro al hover */
+    outline: none;
+}
+
+.link-button {
+	background: none;
+	border: none;
+	color: white;
+	cursor: pointer;
+	font-weight: normal;
+	font-size: 0.9rem;
+	padding: 0;
+	text-decoration: underline;
+}
+
+.link-button:hover {
+    color: #ccc;
+}
+
+main {
+	flex: 1 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+.btn {
+    background-color: #5C1623;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+.btn:hover {
+    background-color:#9C7771;
+}
+footer {
+    background-color: #5C1623;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    flex-shrink: 0;
+}
+
+
+table {
+    margin: 2rem auto;
+    width: 90%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    text-align: left;
+}
+
+thead {
+    background-color: #5C1623;
+    color: white;
+}
+
+thead th {
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+tbody td {
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+    font-size: 0.95rem;
+}
+
+tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.estado-abierto {
+    color: green;
+    font-weight: bold;
+}
+
+.estado-cerrado {
+    color: red;
+    font-weight: bold;
+}
+
+.estado-otro {
+    color: gray;
+    font-style: italic;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.inline-form {
+    all: unset;
+    display: inline;
+}
+
+.icon-action {
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 0.3rem;
+	margin: 0 0.2rem;
+	border-radius: 5px;
+	color: #5C1623; /* color base si no se especifica */
+	font-size: 1.2rem;
+	transition: transform 0.2s ease, filter 0.2s ease;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.icon-action:hover {
+	transform: scale(1.2);
+	filter: brightness(1.4);
+}
+
+.icon-action i {
+	pointer-events: none;
+}
+
+/* Colores individuales */
+.icon-action.rojo { color: #c0392b; }
+.icon-action.rojo:hover { color: #e74c3c; }
+
+.icon-action.amarillo { color: #f39c12; }
+.icon-action.amarillo:hover { color: #f1c40f; }
+
+.icon-action.azul { color: #2980b9; }
+.icon-action.azul:hover { color: #3498db; }
+
+.icon-action.verde { color: #27ae60; }
+.icon-action.verde:hover { color: #2ecc71; }
+
+.contenedor-flex {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.columna {
+    flex: 1 1 45%;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+
+.link-titulo {
+    color: rgb(128, 0, 0);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.link-titulo:hover {
+    text-decoration: underline;
+}
+
+.acciones {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: nowrap;
+}
+
+.acciones form {
+    margin: 0;
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+}
+
+.acciones form button.btn,
+.acciones a.btn {
+    background-color: #5C1623;
+    color: white;
+    border-radius: 5px;
+    padding: 0.75rem 1.5rem;
+    min-width: 180px;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.acciones form button.btn:hover,
+.acciones a.btn:hover {
+    background-color: #9C7771;
+}
+
+.acciones form button.btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* -------------------------------
+   Estilos reutilizables para formularios
+---------------------------------*/
+
+/* Estilo general para formularios simples (sin columna) */
+.formulario-card {
+    background: linear-gradient(135deg, #5C1623 0%, #B08B85 100%);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(92, 22, 35, 0.4);
+    color: #fff;
+    font-weight: 600;
+    max-width: 700px;
+	width: 95%;
+    margin: 2rem auto;
+    text-align: left;
+}
+
+.formulario-card label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+.formulario-card select {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #5C1623;
+}
+
+.formulario-card input[type="text"],
+.formulario-card input[type="number"],
+.formulario-card input[type="email"],
+.formulario-card input[type="password"] {
+    display: block;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.formulario-card button,
+.formulario-card input[type="submit"] {
+    background-color: #fff;
+    color: #5C1623;
+    font-weight: 700;
+    padding: 0.9rem 2rem;
+    border-radius: 30px;
+    border: none;
+    margin-top: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5);
+}
+
+.formulario-card button:hover,
+.formulario-card input[type="submit"]:hover {
+    background-color: #9C7771;
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(156, 119, 113, 0.8);
+}
+
+/* Ajuste específico para el input de contraseña con icono en formularios .formulario-card */
+.formulario-card .form-group.password-container {
+    position: relative;
+}
+
+.formulario-card .password-wrapper {
+	position: relative;
+	width: 100%;
+}
+
+.formulario-card .password-wrapper input[type="password"],
+.formulario-card .password-wrapper input[type="text"] {
+    width: 100%;
+    padding: 0.75rem 2.5rem 0.75rem 0.75rem; 
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    box-sizing: border-box;
+    color: #5C1623;
+}
+
+.formulario-card .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 0.75rem;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+	margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	z-index: 10;
+	height: 100%;
+}
+
+.formulario-card .toggle-password img {
+    width: 20px;
+    height: 20px;
+    filter: invert(0.3); /* o eliminá esta línea si ya no hace falta */
+	user-select: none;
+	pointer-events: none;
+}
+
+/* Estilo para formularios dentro de columnas con paleta personalizada */
+.columna.formulario-card {
+    background: linear-gradient(135deg, #5C1623 0%, #B08B85 100%);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(92, 22, 35, 0.4);
+    color: #fff;
+    font-weight: 600;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+/* Etiquetas dentro del formulario */
+.columna.formulario-card label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+/* Inputs y selects */
+.columna.formulario-card input[type="text"],
+.columna.formulario-card input[type="number"],
+.columna.formulario-card input[type="email"],
+.columna.formulario-card input[type="password"],
+.columna.formulario-card select {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    box-sizing: border-box;
+    color: #5C1623;
+}
+
+/* Botones */
+.columna.formulario-card button,
+.columna.formulario-card input[type="submit"] {
+    background-color: #fff;
+    color: #5C1623;
+    font-weight: 700;
+    padding: 0.9rem 2rem;
+    border-radius: 30px;
+    border: none;
+    margin-top: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5);
+    width: 100%;
+    font-size: 1rem;
+}
+
+.columna.formulario-card button:hover,
+.columna.formulario-card input[type="submit"]:hover {
+    background-color: #9C7771;
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(156, 119, 113, 0.8);
+}
+
+.formulario-dos-columnas {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+	padding: 20px;
+	max-width: 900px;
+	width: 90%;
+	margin: 0 auto;
+	background-color: #f9f9f9;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Para evitar que los <p> tengan márgenes innecesarios */
+.formulario-dos-columnas p,
+.formulario-dos-columnas .form-group {
+	margin: 0;
+}
+
+/* Centrar botón en el pie del formulario */
+.formulario-dos-columnas button[type="submit"] {
+	grid-column: span 2;
+	width: 50%;
+	margin: 0 auto;
+}

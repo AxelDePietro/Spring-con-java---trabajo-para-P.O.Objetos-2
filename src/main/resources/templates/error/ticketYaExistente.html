@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Error: Ticket ya existente</title>
+	<link rel="stylesheet" th:href="@{/css/estiloTicketera.css}">
+</head>
+
+<body>
+
+	<header>
+		<div class="encabezado">
+			<img th:src="@{/css/logo.png}" alt="Logo UNLa" class="logo">
+			<div class="titulo">
+				<h1>Ticketera Soporte UNLa</h1>
+				<p>Gestiona y da seguimiento a tus tickets de soporte técnico</p>
+			</div>
+		</div>
+	</header>
+
+	<nav>
+		<div class="nav-links">
+			<a th:href="@{/}">Inicio</a>
+			<a th:href="@{/misTickets}" sec:authorize="hasRole('ROLE_CLIENTE')">Mis Tickets</a>
+			<a th:href="@{/crearTicket}" sec:authorize="hasRole('ROLE_CLIENTE')">Crear nuevo ticket</a>
+			<a th:href="@{/listaTickets}" sec:authorize="hasRole('ROLE_ADMIN')">Lista de Tickets</a>
+			<a th:href="@{/misTicketsEmpleado}" sec:authorize="hasAnyRole('SENIOR', 'TRAINEE', 'QA','JUNIOR')">Lista de Tickets</a>
+			<a th:href="@{/listaUsuarios}" sec:authorize="hasRole('ROLE_ADMIN')">Administrar Usuarios</a>
+			<a th:href="@{/altaEmpleado}" sec:authorize="hasRole('ROLE_ADMIN')">Incorporar Empleado</a>
+			<a th:href="@{/registro}" sec:authorize="!isAuthenticated()">Registrarse</a>
+			<a th:href="@{/login}" sec:authorize="!isAuthenticated()">Iniciar sesión</a>
+		</div>
+		<form th:action="@{/logout}" method="post" sec:authorize="isAuthenticated()" class="logout-form">
+			<button type="submit" class="link-button">Cerrar sesión</button>
+		</form>
+	</nav>
+
+	<main>
+		<h2 style="color: red;">Error: El ticket ya existe</h2>
+		<p th:text="${mensaje}">Ya existe un ticket con ese título.</p>
+		<button class="btn" onclick="history.back()">Volver a crear ticket</button>
+	</main>
+
+	<footer>
+		&copy; 2025 Ticketera Soporte UNLa. Todos los derechos reservados.
+	</footer>
+
+</body>
+
+</html>
